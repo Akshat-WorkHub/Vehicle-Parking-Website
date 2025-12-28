@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+    <!-- Link to shared dashboard CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_dashboard.css') }}">
+    <!-- Link to specific booking page CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='my_booking.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <!-- User Icon SVG -->
+            <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <h1>Welcome to User Dashboard</h1>
+        </div>
+        <nav>
+            <!-- Navigation links - ensure these point to correct routes -->
+            <a href="{{ url_for('serve_user_dashboard_page') }}" class="nav-btn">Home</a>
+            <a href="{{ url_for('serve_my_booking_page') }}" class="nav-btn">My Booking</a>
+            <a href="{{ url_for('serve_user_summary') }}" class="nav-btn">Summary</a> <!-- Placeholder -->
+            <a href="{{ url_for('serve_index_page') }}" class="nav-btn">Log Out</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="booking-container">
+            <div class="booking-header">
+                <h2>My Booking</h2>
+                <!-- User Icon Placeholder -->
+                <div class="user-icon-placeholder">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="booking-table">
+                <div class="booking-table-header">
+                    <span class="header-cell cell-id">Id</span>
+                    <span class="header-cell cell-location">Parking Location (LotID + Lot Name)</span>
+                    <span class="header-cell cell-vehicle">Vehicle No.</span>
+                    <span class="header-cell cell-time">Time Stamp</span>
+                    <span class="header-cell cell-action">Action</span>
+                </div>
+                
+                <!-- Container where booking rows will be inserted -->
+                <div id="booking-list" class="booking-list">
+                    <!-- Booking rows will be dynamically inserted here -->
+                </div>
+
+                <!-- 
+                    *** ADDED THIS ELEMENT *** Message shown when no bookings are found or if there's an error 
+                -->
+                <p id="no-bookings-message" class="no-bookings-message" style="display: none;">
+                    No Bookings Found
+                </p>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Link to the booking page JavaScript file -->
+    <script src="{{ url_for('static', filename='my_booking.js') }}"></script>
+</body>
+</html>
+

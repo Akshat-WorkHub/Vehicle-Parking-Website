@@ -1,0 +1,402 @@
+/* General Body and Font Styles */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* --- UPDATED BACKGROUND --- */
+    /* Assumes 'background.jpg' is in the 'static' folder alongside this CSS file */
+    background-image: url('background.jpg'); 
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Image stays in place on scroll */
+    background-repeat: no-repeat;
+    /* --- END UPDATED BACKGROUND --- */
+
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #ffd700; /* Bright yellow */
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    flex-wrap: wrap; /* Allows nav to wrap on smaller screens */
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.user-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    border-radius: 50%;
+    color: #ffd700;
+    padding: 5px;
+}
+
+/* Navigation Styling */
+nav {
+    background-color: #ffaf40; /* Orange-ish */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: background-color 0.2s;
+}
+
+.nav-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Main Content Area */
+main {
+    flex-grow: 1;
+    padding: 30px;
+    position: relative; /* Needed for modal backdrop */
+}
+
+.content-container {
+    background-color: #f0f0f05c;
+    border-radius: 15px;
+    padding: 25px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.toggle-bar {
+    background-color: #b22222; /* Dark red */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 25px;
+    border-radius: 30px;
+    margin: 0 auto 30px auto;
+    max-width: 600px;
+}
+
+.toggle-bar span {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+#show-lots-btn {
+    background-color: white;
+    color: #b22222;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#show-lots-btn:hover {
+    background-color: #eee;
+}
+
+/* Parking Lot Grid */
+#parking-lot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-height: 1500px; 
+    opacity: 1;
+    overflow: hidden; 
+    transition: max-height 0.7s ease-in-out, opacity 0.7s ease-in-out;
+}
+
+#parking-lot-grid.hidden {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none; 
+    visibility: hidden;
+}
+
+/* Parking Card Styling */
+.parking-card {
+    background-color: #2b2b2b; /* Dark grey/black */
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.parking-card h2 {
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+}
+
+.parking-card p {
+    margin: 8px 0;
+    font-size: 1.1rem;
+}
+
+.card-detail {
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block; 
+}
+
+.card-detail.occupied {
+    background-color: #c02828; /* Red */
+    color: white;
+}
+
+.card-detail.price {
+    background-color: #444; /* Darker grey */
+    color: #f0f0f0;
+}
+
+.view-btn {
+    background-color: #f0f0f0;
+    color: #2b2b2b;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.view-btn:hover {
+    background-color: #ddd;
+}
+
+
+/* ====================================================================
+MODAL STYLES (New)
+==================================================================== 
+*/
+
+.modal-backdrop {
+    display: none; /* Hidden by default */
+    position: fixed; /* Sit on top of the page content */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Black background with opacity */
+    z-index: 100; /* Sit on top */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 101; /* Sit on top of the backdrop */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    background-color: #fbdada; /* Light reddish/pink from wireframe */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    padding: 25px;
+}
+
+/* Active state for modals */
+.modal-backdrop.active,
+.modal.active {
+    display: block; /* Show the modal */
+}
+
+/* Styles for Spot Selection Modal (Wireframe 12) */
+.spot-modal-content {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.spot-modal-header {
+    background-color: #ffaf40; /* Orange-ish */
+    color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 0;
+}
+
+.spot-modal-subheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffd700; /* Yellow */
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.spot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.spot-btn {
+    padding: 20px 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.spot-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+}
+
+.spot-btn.available {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+
+.spot-btn.occupied {
+    background-color: #dc3545; /* Red */
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.modal-close-btn {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 25px auto 0 auto;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Styles for Booking Form Modal (Wireframe 13) */
+.booking-form h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+    margin-top: 0;
+}
+
+.booking-form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.booking-form-group label {
+    background-color: #e0e0e0;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    flex-basis: 150px;
+    flex-shrink: 0;
+}
+
+.booking-form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.booking-form-group input:disabled {
+    background-color: #f0f0f0;
+    color: #555;
+    border-color: #ddd;
+}
+
+.modal-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.modal-btn {
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 0;
+    width: 140px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.modal-btn:hover {
+    transform: translateY(-3px);
+}
+
+.reserve-btn {
+    background-color: #b22222; /* Dark red */
+}
+.reserve-btn:hover {
+    background-color: #8b0000;
+}
+
+.cancel-btn {
+    background-color: #191970; /* Midnight Blue */
+}
+.cancel-btn:hover {
+    background-color: #000080;
+}
+
+/* ... after .reserve-btn:hover ... */
+
+.reserve-btn:disabled {
+    background-color: #999; /* A muted color */
+    cursor: not-allowed;
+    transform: none; /* Don't hover-lift when disabled */
+}
+
+/* ... before .cancel-btn ... */

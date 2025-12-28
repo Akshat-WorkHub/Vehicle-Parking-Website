@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* --- UPDATED BACKGROUND --- */
+    /* Assumes 'background.jpg' is in the 'static' folder alongside this CSS file */
+    background-image: url('background4.jpg'); 
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Image stays in place on scroll */
+    background-repeat: no-repeat;
+    /* --- END UPDATED BACKGROUND --- */
+}
+
+.dashboard-container {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* --- HEADER STYLES (YELLOW & TEAL) --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #020a2a; /* Bright Yellow Background */
+    /* Creates the custom curve effect */
+    border-bottom-left-radius: 60px; 
+    border-bottom-right-radius: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-left h1 {
+    font-size: 1.5em;
+    color: #ffffff; /* Black text on yellow */
+    margin: 0;
+}
+
+.header-right {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-button {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    background-color: #fcfcfc; /* Light background for nav buttons */
+}
+
+.nav-button:hover {
+    background-color: #cccccc;
+}
+
+.logout-button {
+    background-color: #ff4500; /* Red-Orange Logout Button */
+    color: white;
+}
+.logout-button:hover {
+    background-color: #cc3700;
+}
+
+/* --- MAIN CONTENT STYLES --- */
+.dashboard-main-content {
+    padding: 30px;
+    margin: 30px 40px;
+    border-radius: 10px;
+    min-height: 70vh;
+    z-index: 1;
+}
+
+.control-panel {
+    display: flex;
+    /* justify-content: center; */
+    margin-bottom: 30px;
+    gap : 10px;
+}
+
+.key-icon {
+    height : 70px;
+    mix-blend-mode: multiply;
+}
+
+.add-lot-button {
+    display: flex;
+    align-items: center;
+    background-color: #cc0000; /* Bright Red */
+    color: white;
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s;
+    gap: 10px;
+}
+
+.add-lot-button:hover {
+    background-color: #5b0202;
+}
+
+/* --- PARKING LOTS SECTION TITLE --- */
+.section-title-bar {
+    background-color: #030303; /* Bright Red */
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.section-title-bar h2 {
+    margin: 0;
+    color: #f2e4d1; /* Safety Yellow text */
+    font-size: 2.8em;
+    text-decoration: underline;
+}
+
+/* --- PARKING CARD STYLES --- */
+.parking-lots-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.parking-card {
+    background-color: #340919; /* Green background for the card */
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.parking-card h3 {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.spots-info {
+    background-color: #ff9999; /* Light Red/Pink for 'Occupied Spots' */
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.price-info {
+    background-color: #ffcccb; /* Lighter Pink for 'Price Per Hour' */
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: brown;
+    color: #ffffff;
+}
+
+.edit-button {
+    background-color: #ffffff; /* White/Light button */
+    color: #4CAF50;
+}
+
+.delete-button {
+    background-color: #ffffff; /* White/Light button */
+    color: #cc0000;
+}
+
+.view-button {
+    background-color: #ffffff; /* White/Light button */
+    color: #4CAF50;
+}
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Link to the new dashboard CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_dashboard.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <!-- User Icon SVG -->
+            <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <h1 id="welcome-greeting">Welcome to User Dashboard</h1>
+        </div>
+        <nav>
+            <!-- Navigation links -->
+            <a href="{{ url_for('serve_user_dashboard_page') }}" class="nav-btn">Home</a>
+            <a href="{{ url_for('serve_my_booking_page') }}" class="nav-btn">My Booking</a>
+            <a href="{{ url_for('serve_user_summary') }}" class="nav-btn">Summary</a>
+            <!-- This should log the user out -->
+            <a href="{{ url_for('serve_index_page') }}" class="nav-btn">Log Out</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-container">
+            <div class="toggle-bar">
+                <span>Available Parking Lots</span>
+                <button id="show-lots-btn">Show</button>
+            </div>
+            
+            <!-- This grid is hidden by default and will be filled by JavaScript -->
+            <div id="parking-lot-grid" class="hidden">
+                <!-- Parking lot cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 
+    ====================================================================
+    MODALS (Hidden by default)
+    ==================================================================== 
+    -->
+
+    <!-- Backdrop for all modals -->
+    <div id="modal-backdrop" class="modal-backdrop"></div>
+
+    <!-- Modal 1: Spot Selection (Wireframe 12) -->
+    <div id="spot-selection-modal" class="modal">
+        <div class="spot-modal-content">
+            <h2 id="spot-modal-title" class="spot-modal-header">Parking Lot #1</h2>
+            
+            <div class="spot-modal-subheader">
+                <span>Select Available Spots to Book</span>
+                <span id="spot-modal-occupied-count">Occupied 2/6</span>
+            </div>
+
+            <!-- Grid for individual parking spots -->
+            <div id="spot-grid" class="spot-grid">
+                <!-- Spots will be dynamically inserted here -->
+            </div>
+
+            <button id="spot-modal-close-btn" class="modal-close-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- Modal 2: Booking Form (Wireframe 13) -->
+    <div id="booking-form-modal" class="modal">
+        <form id="booking-form" class="booking-form">
+            <h2>Booking Parking Slot Details</h2>
+            
+            <div class="booking-form-group">
+                <label for="book-spot-id">Spot ID :</label>
+                <input type="text" id="book-spot-id" name="spot_id" disabled>
+            </div>
+            <div class="booking-form-group">
+                <label for="book-lot-id">Lot ID :</label>
+                <input type="text" id="book-lot-id" name="lot_id" disabled>
+            </div>
+            <div class="booking-form-group">
+                <label for="book-user-id">User ID :</label>
+                <!-- In a real app, you'd get this from the user's session -->
+                <input type="text" id="book-user-id" name="user_id" value="1" disabled>
+            </div>
+            <div class="booking-form-group">
+                <label for="book-vehicle-number">Vehicle Number :</label>
+                <input type="text" id="book-vehicle-number" name="vehicle_number" placeholder="Enter your vehicle number" required>
+            </div>
+
+            <div class="modal-btn-group">
+                <button type="submit" class="modal-btn reserve-btn">Reserve</button>
+                <button type="button" id="booking-cancel-btn" class="modal-btn cancel-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Link to the new dashboard JavaScript file -->
+    <script src="{{ url_for('static', filename='user_dashboard.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Summary</title>
+    <!-- Link to shared user dashboard styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_dashboard.css') }}">
+    <!-- Link to specific summary styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_summary.css') }}">
+    <!-- Google Fonts (Optional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Re-use header from user_dashboard.html -->
+        <header>
+            <div class="header-left">
+                <!-- User Icon SVG -->
+                <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <h1>Welcome to User Dashboard</h1>
+            </div>
+            <nav>
+                <!-- Navigation links -->
+                <a href="{{ url_for('serve_user_page') }}" class="nav-btn">Home</a>
+                <a href="{{ url_for('serve_my_booking_page') }}" class="nav-btn">My Booking</a>
+                <a href="{{ url_for('serve_user_summary') }}" class="nav-btn active">Summary</a>
+                <a href="{{ url_for('serve_index_page') }}" class="nav-btn logout-btn">Log Out</a> <!-- Changed class -->
+            </nav>
+        </header>
+
+        <main class="dashboard-main-content summary-main">
+            <h2 class="summary-title">Customer Billing Table</h2>
+
+            <div class="billing-table-container">
+                <table id="billing-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Booking ID</th>
+                            <th>Customer ID</th>
+                            <th>Final Cost</th>
+                            <th>Billing Duration (Hours)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="billing-table-body">
+                        <!-- Rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+                <p id="no-summary-message" class="no-data-message" style="display: none;">No billing records found.</p>
+                 <p id="summary-error-message" class="error-message" style="display: none;"></p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Link to the summary JavaScript file -->
+    <script src="{{ url_for('static', filename='user_summary.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='parking_forms.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1>Welcome to Admin Dashboard</h1>
+            </div>
+            <nav class="header-right">
+                <a href="#" class="nav-button">Home</a>
+                <a href="{{ url_for('serve_admin_summary') }}" class="nav-button">Summary</a>
+                <a href="{{ url_for('serve_index_page') }}" class="nav-button logout-button">Log Out</a>
+            </nav>
+        </header>
+
+        <main class="dashboard-main-content">
+            <div class="control-panel">
+                <button class="add-lot-button" id="openAddModalBtn">
+                    <img src="{{ url_for('static', filename='key.png') }}" alt="key" class="key-icon">
+                    + Add Parking Area Lot
+                </button>
+            </div>
+            
+            <div class="section-title-bar">
+                <h2>Available Parking lots</h2>
+            </div>
+
+            <div class="parking-lots-grid">
+                <!-- <div class="parking-card">
+                    <h3>Parking #1</h3>
+                    <h3>Name : Shopping Mall</h3>
+                    <div class="spots-info">Occupied Spots : 0/30</div>
+                    <div class="price-info">Price Per Hour : Rs. 1000</div>
+                    <div class="card-actions">
+                        <button class="action-button edit-button" id="openEditModalBtn">Edit</button>
+                        <button class="action-button delete-button">Delete</button>
+                        <button class="action-button view-button">View</button>
+                    </div>
+                </div> -->
+            </div>
+        </main>
+    </div>
+
+    <div id="newLotModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>New Parking Lot</h2>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label>Prime Location Name :</label>
+                    <input type="text" name="location_name">
+                </div>
+                <div class="form-group">
+                    <label>Address :</label>
+                    <input type="text" name="address">
+                </div>
+                <div class="form-group">
+                    <label>Pincode Number :</label>
+                    <input type="text" name="pincode">
+                </div>
+                <div class="form-group">
+                    <label>Price Per Hour :</label>
+                    <input type="text" name="price_per_hour">
+                </div>
+                <div class="form-group">
+                    <label>Maximum Spots :</label>
+                    <input type="text" name="max_spots">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="form-button add-button">Add</button>
+                    <button type="button" class="form-button cancel-button" id="closeAddModalBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="editLotModal" class="modal">
+        <div class="modal-content edit-modal-content">
+            <div class="modal-header edit-modal-header">
+                <h2>Edit Parking Lot</h2>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label>Prime Location Name :</label>
+                    <input type="text" name="location_name">
+                </div>
+                <div class="form-group">
+                    <label>Address :</label>
+                    <input type="text" name="address">
+                </div>
+                <div class="form-group">
+                    <label>Pincode Number :</label>
+                    <input type="text" name="pincode">
+                </div>
+                <div class="form-group">
+                    <label>Price Per Hour :</label>
+                    <input type="text" name="price_per_hour">
+                </div>
+                <div class="form-group">
+                    <label>Maximum Spots :</label>
+                    <input type="text" name="max_spots">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="form-button add-button">Add</button>
+                    <button type="button" class="form-button cancel-button" id="closeEditModalBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="viewLotModal" class="modal">
+        <div class="modal-content view-lot-modal-content">
+            <div class="modal-header view-lot-modal-header">
+                <h2 id="viewLotTitle">Parking Lot #1</h2>
+                <h3 id="viewLotOccupancy">Occupied 2/6</h3>
+            </div>
+            <div class="spot-grid-container" id="spotGridContainer">
+                </div>
+            <div class="form-actions">
+                <button type="button" class="form-button close-view-modal" id="closeViewLotModalBtn">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="spotDetailsModal" class="modal">
+        <div class="modal-content spot-details-modal-content">
+            </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='parking_forms.js') }}"> </script>
+</body>
+</html>

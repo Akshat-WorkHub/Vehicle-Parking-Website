@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <!-- Link to the new CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_login.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome To User Dashboard</h1>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <div class="form-banner">
+                <!-- 
+                    NOTE: This is a placeholder image. 
+                    You should replace 'login_banner.png' with the actual filename
+                    of the banner image you want to use in your 'static' folder.
+                -->
+                <img src="{{ url_for('static', filename='user_login.png') }}" alt="User Login Banner" class="user-login">
+            </div>
+
+            <div class="form-content">
+                <h2>User Login</h2>
+
+                <form id="userLoginForm">
+                    <div class="form-group">
+                        <label for="username">Registered Email</label>
+                        <input type="email" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="submit" class="btn-login">Login</button>
+                        <!-- This links to your existing registration page route -->
+                        <a href="{{ url_for('serve_user_reg_page') }}">
+                            <button type="button" class="btn-register">Register</button>
+                        </a>
+                    </div>
+                </form>
+                <!-- This is for showing error/success messages -->
+                <p id="form-message" class="form-message"></p>
+            </div>
+        </div>
+
+        <!-- This links back to your main admin login page -->
+        <a href="{{ url_for('serve_index_page') }}" class="home-button-link">
+            <button type="button" class="btn-home">Home</button>
+        </a>
+    </main>
+
+    <!-- Link to the new JavaScript file -->
+    <script src="{{ url_for('static', filename='user_login.js') }}"></script>
+</body>
+</html>

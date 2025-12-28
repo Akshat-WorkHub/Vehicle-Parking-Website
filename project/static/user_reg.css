@@ -1,0 +1,128 @@
+/* General Body and Font Styles */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* --- UPDATED BACKGROUND --- */
+    /* Assumes 'background.jpg' is in the 'static' folder alongside this CSS file */
+    background-image: url('background2.jpg'); 
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Image stays in place on scroll */
+    background-repeat: no-repeat;
+    /* --- END UPDATED BACKGROUND --- */
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #ffd700; /* Bright yellow */
+    color: black;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+/* Main Content Area */
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Form Styling */
+.form-container {
+    background-color: #f4c7c7; /* Light reddish/pink background */
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 0 30px 30px 30px;
+    /* width: 100%; */
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Ensures banner corners are rounded */
+}
+
+.user-reg{
+    mix-blend-mode:darken;
+    width: 400px;
+    display: block;
+}
+
+
+
+
+.form-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    gap: 10px;
+}
+
+.form-group label {
+    background-color: #d06161; /* Light grey */
+    color: #ffffff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    flex-basis: 150px; /* Gives all labels a consistent width */
+    flex-shrink: 0;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 30px;
+}
+
+.button-group button {
+    background-color: #252595; /* Midnight Blue */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 0;
+    width: 140px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.button-group button:hover {
+    background-color: #19084a; /* Navy */
+    transform: translateY(-4px);
+}
+
+/* New class for form messages */
+.form-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}

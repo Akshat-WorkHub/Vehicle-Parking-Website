@@ -1,0 +1,160 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* Removed flex alignment as content is positioned differently now */
+    min-height: 100vh;
+    padding-top: 100px; /* ADDED PADDING: Push content below the fixed header */
+    box-sizing: border-box;
+
+    /* --- BACKGROUND --- */
+    background-image: url('background3.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    color: white; /* Default text color */
+    position: relative; /* Needed for the overlay */
+}
+
+/* Add a semi-transparent overlay */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: 1; /* Place overlay below content */
+}
+
+/* Container for all content - ensures it sits above the overlay */
+.container {
+    position: relative; /* Sit above the ::before overlay */
+    z-index: 2; 
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    width: 100%;
+    max-width: 600px; /* Limit overall width */
+    text-align: center; /* Center text within the container */
+    margin: 0 auto; /* Center container horizontally */
+}
+
+/* --- MODIFIED: Welcome Section as Navbar --- */
+.welcome-section {
+    position: fixed; /* Fix to the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    background-color: rgb(0, 0, 0); /* Semi-transparent black */
+    padding: 15px 0; /* Vertical padding */
+    z-index: 10; /* Ensure it's above body overlay */
+    box-sizing: border-box;
+    text-align: center;
+    /* Removed margin-bottom */
+    /* Removed display: block */
+}
+
+/* Center login section relative to container */
+.login-section {
+    width: 100%; 
+    background: none; 
+    padding: 0; 
+    display: flex; /* Use flex to center the card */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if needed */
+    margin-top: 300px; /* ADDED: Space below the fixed header area */
+}
+
+.welcome-section h1 {
+    font-size: 2.5em; /* Slightly smaller for navbar */
+    text-align: center; 
+    line-height: 1.2;
+    color: #f7e7c4; 
+    margin: 0; /* Remove margin */
+    padding: 0 20px; /* Add horizontal padding if text is long */
+
+    /* Brighter Gold/Yellow Glow - closer to the image */
+    text-shadow:
+    0 0 10px #ffcc00, /* Yellow */
+        0 0 5px #7d0c04,  /* Soft gold */
+        0 0 15px #ff3700; /* Orange-Yellow */
+}
+/* --- END MODIFICATION --- */
+
+
+/* Remove underline style if not needed */
+.welcome-section h1 span {
+    text-decoration: none; 
+}
+
+/* Login Card Styling */
+.login-card {
+    background-color: #dc3c3cde; /* Light Gray */
+    padding: 30px 40px; /* Increased padding */
+    border-radius: 15px; /* Slightly less rounded */
+    text-align: center;
+    width: 100%; /* Take full width available */
+    max-width: 350px; /* Control max width */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6); /* Stronger shadow */
+    box-sizing: border-box;
+    margin: 0 auto; /* Center the card */
+}
+
+/* Shared Button Styles */
+.login-button {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em; /* Adjusted font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: #1a1a1a; /* Dark text */
+    font-weight: bold;
+}
+
+.login-button:last-child {
+    margin-bottom: 0;
+}
+
+.login-button:hover {
+    transform: translateY(-2px); /* Add slight lift on hover */
+}
+
+/* Specific Button Colors */
+.admin-button {
+    background-color: #ffcc00; /* Yellow */
+}
+
+.admin-button:hover {
+    background-color: #e6b800; /* Darker Yellow */
+}
+
+.user-button {
+    background-color: #ff9900; /* Orange */
+}
+
+.user-button:hover {
+    background-color: #e68a00; /* Darker Orange */
+}
+
+/* Ensure links containing buttons fill the width */
+.login-card a {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 20px; /* Keep consistent spacing */
+}
+.login-card a:last-child {
+     margin-bottom: 0;
+}
+
+/* Remove extra <br> margin if needed */
+.login-card br {
+    display: none;
+}
+

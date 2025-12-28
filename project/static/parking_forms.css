@@ -1,0 +1,328 @@
+/* --- MODAL OVERLAY STYLES --- */
+.modal {
+    display: none; /* Hidden by default - JavaScript will toggle this */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top of all other content */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+}
+
+.modal-content {
+    background-color: #ffe0e0; /* Light Pink background from the wireframe */
+    margin: 5% auto; /* Centered with space from the top */
+    padding: 20px;
+    width: 60%; 
+    max-width: 700px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* --- MODAL HEADER --- */
+.modal-header {
+    background-color: #9a0000; /* Dark Red Header */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    /* Extend header to touch modal edges */
+    margin: -20px -20px 20px -20px; 
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+/* --- MODAL FORM FIELDS --- */
+.modal-form {
+    padding: 10px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    flex: 1;
+    background-color: #d8d8d8; /* Light gray background for labels */
+    padding: 8px 12px;
+    margin-right: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #000;
+    text-align: right;
+}
+
+.form-group input {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* --- MODAL ACTION BUTTONS --- */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Space between Add and Cancel */
+    margin-top: 40px;
+}
+
+.form-button {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: white;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+}
+
+.add-button {
+    background-color: #2460cf; /* Dark Blue */
+}
+
+.add-button:hover {
+    background-color: #000066;
+}
+
+.cancel-button {
+    background-color: #c64848; /* Dark Red */
+}
+
+.cancel-button:hover {
+    background-color: #7d0000;
+}
+
+/* ------------------------------------------------------ */
+
+/* --- EDIT MODAL SPECIFIC STYLES --- */
+
+/* Changes the modal content background to the light olive color */
+.edit-modal-content {
+    background-color: #dbe4c6;
+    color: #000; 
+}
+
+/* Changes the modal header color to the dark teal color */
+.edit-modal-header {
+    background-color: #208e8b; /* Dark Teal */
+    margin: -20px -20px 20px -20px; /* Adjust margin to fit content */
+}
+
+/* Re-styles the Add button to the Dark Blue color used in the wireframe */
+.edit-modal-content .add-button {
+    background-color: #2460cf; /* Dark Blue */
+}
+
+.edit-modal-content .add-button:hover {
+    background-color: #000066;
+}
+
+
+/* Re-styles the Cancel button to the Dark Blue color used in the wireframe */
+.edit-modal-content .cancel-button {
+    background-color: #c64848; /* Dark Red */
+}
+
+.edit-modal-content .cancel-button:hover {
+    background-color: #7d0000;
+}
+
+
+/* ------------------------------------------------------------------------------- */
+
+
+/* --- VIEW LOT MODAL (Wireframe - 5) --- */
+
+.view-lot-modal-content {
+    background-color: #ffe0e0; /* Light Pink */
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.view-lot-modal-header {
+    background-color: #ffcc00; /* Yellow */
+    color: black;
+    text-align: center;
+    padding: 15px;
+    margin: -20px -20px 20px -20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.view-lot-modal-header h3 {
+    margin: 5px 0 0 0;
+    font-size: 1.2em;
+    color: #000080; /* Dark Blue for Occupancy text */
+}
+
+.spot-grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+    max-height: 400px; /* Limit height for scrollbar */
+    overflow-y: auto;
+}
+
+/* --- SPOT BUTTONS (A, O) --- */
+.spot-button {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s;
+}
+
+.spot-button:hover {
+    transform: scale(1.05);
+}
+
+.spot-available {
+    background-color: #4CAF50; /* Green (A) */
+}
+
+.spot-occupied {
+    background-color: #cc0000; /* Red (O) */
+}
+
+.close-view-modal {
+    background-color: #cc0000; /* Red Close button */
+    color: white;
+    margin-top: 20px;
+}
+
+
+/* --- SPOT DETAILS MODAL (Wireframe - 6 & 7) --- */
+
+.spot-details-modal-content {
+    background-color: #18563f; /* Dark Purple/Mauve */
+    width: 50%;
+    max-width: 600px;
+    padding: 0; /* Remove default padding, controlled by inner divs */
+}
+
+/* Header for Spot Details */
+.spot-details-header {
+    background-color: #cc0000; /* Dark Red */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* Available Spot Content (Wireframe - 6) */
+.spot-available-content {
+    padding: 30px;
+    color: white;
+    text-align: center;
+}
+
+.spot-info-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.spot-info-chip span {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.spot-id-label {
+    background-color: black;
+}
+
+.spot-id-value {
+    background-color: #cc0000; /* Red */
+}
+
+.spot-status-label {
+    background-color: black;
+    color: white;
+}
+
+.spot-status-value {
+    background-color: #000080; /* Dark Blue */
+    color: white;
+}
+
+/* Occupied Spot Form/Details (Wireframe - 7) */
+.spot-occupied-content {
+    padding: 30px;
+    color: white;
+}
+
+.spot-occupied-content .form-group label {
+    background-color: #d8d8d8; /* Light gray label */
+}
+
+.spot-occupied-content .form-actions .form-button {
+    background-color: #000080; /* Dark Blue */
+}
+
+/* -------------------------------------------------------- */
+
+.view-action-btn {
+    /* width: 80px;
+    height: 80px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.8em;
+    font-weight: bold;
+    background-color: #77c87a;
+    color: darkgreen;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s;
+}
+
+
+.delete-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s;
+}
+
+.delete-action-btn:hover{
+    transition: background-color 0.2s;
+    background: #000;
+    color: white;
+}

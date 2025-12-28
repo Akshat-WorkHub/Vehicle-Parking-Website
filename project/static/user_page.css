@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* --- UPDATED BACKGROUND --- */
+    /* Assumes 'background.jpg' is in the 'static' folder alongside this CSS file */
+    background-image: url('background2.jpg'); 
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Image stays in place on scroll */
+    background-repeat: no-repeat;
+    /* --- END UPDATED BACKGROUND --- */
+}
+
+/* Header Styling */
+header {
+    background-color: #ffd700; /* Bright yellow */
+    color: black;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    text-decoration: underline;
+}
+
+/* Main Content Area */
+main {
+    flex-grow: 1; /* Allows this section to fill available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Car Styling */
+.car-container {
+    position: absolute;
+    width: 550px;
+    height: 270px;
+    /* Using a media query to make it responsive on smaller screens */
+    max-width: 100%;
+}
+
+.car-body {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    height: 120px;
+    background-color: rgba(0, 0, 0, 0.745);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Button Styling */
+button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    background-color: #f0f0f0; /* Light grey */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #ccc8c8;
+    transform: translateY(-4px); /* Slight lift effect on hover */
+}

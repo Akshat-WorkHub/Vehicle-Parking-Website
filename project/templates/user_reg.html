@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Relative path to CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_reg.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome To User Dashboard</h1>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <div class="form-banner">
+                <!-- Relative path to image. Assumes image is named 'user_reg.png' -->
+                <img src="{{ url_for('static', filename='user_reg.png') }}" alt="City skyline with a car and parking sign" class="user-reg">
+            </div>
+
+            <h2>User Details</h2>
+
+            <form id="userDetailsForm">
+                <div class="form-group">
+                    <label for="customerName">Customer Name</label>
+                    <!-- Updated name attribute -->
+                    <input type="text" id="customerName" name="full_name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <!-- Updated name attribute (assuming email is the username) -->
+                    <input type="email" id="Email" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Original Password</label>
+                    <!-- Updated name attribute -->
+                    <input type="password" id="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <!-- No name needed, just for client-side validation -->
+                    <input type="password" id="confirmPassword" name="confirmPwd">
+                </div>
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number</label>
+                    <!-- This field is not in the User model, but we can send it -->
+                    <input type="tel" id="contactNumber" name="contact">
+                </div>
+                
+                <div class="button-group">
+                    <button type="submit" class="btn-register">Register</button>
+                    <!-- Assumes user_page.html is in a 'templates' folder -->
+                    <a href="{{ url_for('serve_user_page') }}">
+                        <button type="button" class="btn-login">Login</button>
+                    </a>
+                </div>
+            </form>
+            <!-- To show success or error messages -->
+            <p id="form-message" class="form-message"></p>
+        </div>
+    </main>
+
+    <!-- Relative path to JavaScript -->
+    <script src="/static/user_reg.js"></script>
+</body>

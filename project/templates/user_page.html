@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_page.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome To User Dashboard</h1>
+    </header>
+
+    <main>
+        <div class="car-container">
+            <div class="car-body">
+                <a href="{{ url_for('serve_user_login_page') }}">
+                    <button>Login</button>
+                </a>
+                <a href="{{ url_for('serve_user_reg_page') }}">
+                    <button>Register</button>
+                </a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

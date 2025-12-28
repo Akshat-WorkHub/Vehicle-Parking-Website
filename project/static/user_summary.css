@@ -1,0 +1,98 @@
+/* Inherits styles from user_dashboard.css */
+
+.summary-main {
+    background-color: #fcf3e1; /* Lighter beige background */
+    border: 3px solid #c02828; /* Red border like wireframe */
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 1200px; /* Limit width */
+    margin: 30px auto; /* Center horizontally */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.summary-title {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+.billing-table-container {
+    overflow-x: auto; /* Allow horizontal scrolling on small screens */
+}
+
+#billing-table {
+    width: 100%;
+    border-collapse: collapse; /* Remove gaps between cells */
+    margin-top: 20px;
+    background-color: #fff; /* White table background */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Rounded corners for the table */
+    overflow: hidden; /* Clip content to rounded corners */
+}
+
+#billing-table th,
+#billing-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee; /* Light lines between rows */
+}
+
+#billing-table th {
+    background-color: #ffd700; /* Yellow header from wireframe */
+    color: #333; /* Dark text */
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+#billing-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Subtle striping for rows */
+}
+
+#billing-table tbody tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+#billing-table td {
+    color: #555; /* Slightly lighter text for data */
+}
+
+/* Status specific styling (optional) */
+#billing-table td:last-child {
+    font-weight: bold;
+}
+
+.status-completed {
+    color: #28a745; /* Green */
+}
+
+.status-reserved {
+    color: #ffc107; /* Yellow/Orange */
+}
+.status-paid {
+     color: #007bff; /* Blue */
+}
+
+
+/* Message Styles */
+.no-data-message,
+.error-message { /* Shared styles */
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.1em;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.no-data-message {
+    color: #555;
+    background-color: #f0f0f0;
+}
+
+.error-message {
+    color: #dc3545; /* Red */
+    background-color: #f8d7da; /* Light red background */
+}
